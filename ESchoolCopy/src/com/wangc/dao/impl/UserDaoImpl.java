@@ -68,7 +68,7 @@ public class UserDaoImpl implements IUser {
 						rs.getString("user_pic"), rs.getInt("user_degree"));
 				String goodsCountSql = "select count(*) as goodscount from goods where user_id=?";
 				String showCountSql = "select count(*) as showcount from shows where user_id=?";
-				String collectionCountSql = "select count(*) as collectioncount fron collections where user_id=?";
+				String collectionCountSql = "select count(*) as collectioncount from collections where user_id=?";
 				int goodsCount = 0;
 				int showCount = 0;
 				int collectionCount = 0;
