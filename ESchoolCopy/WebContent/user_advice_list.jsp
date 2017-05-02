@@ -48,6 +48,42 @@
 					}
 				%>
 			</table>
+			<center>
+				<%
+					int currentPageNo=1;
+					if(request.getParameter("currentPageNo")!=null){
+						currentPageNo=Integer.parseInt(request.getParameter("currentPageNo"));
+					}
+					int pageCount=0;
+					if(request.getParameter("pageCount")!=null){
+						pageCount=Integer.parseInt(request.getParameter("pageCount"));
+					}
+					if(currentPageNo==1 && pageCount!=1){
+						out.print(currentPageNo+"/"+pageCount+"&nbsp;&nbsp");
+						%>
+						<a href="UserAdviceServlet?type=pages&currentPageNo=<%=currentPageNo+1 %>" >下一页</a>
+						<a href="UserAdviceServlet?type=pages&currentPageNo=<%= pageCount %>" >尾页</a>
+						<%
+					}else if(currentPageNo > 1 && currentPageNo < pageCount){
+						%>
+						<a href="UserAdviceServlet?type=pages&currentPageNo=1" >首页</a>
+						<a href="UserAdviceServlet?type=pages&currentPageNo=<%=currentPageNo-1  %>" >上一页</a>
+						<%
+							out.print(currentPageNo+"/"+pageCount);
+						%>
+						<a href="UserAdviceServlet?type=pages&currentPageNo=<%= currentPageNo+1 %>" >下一页</a>
+						<a href="UserAdviceServlet?type=pages&currentPageNo=<%= pageCount %>" >尾页</a>
+						<%
+					}else if(currentPageNo == pageCount && pageCount!=1){
+						%>
+						<a href="UserAdviceServlet?type=pages&currentPageNo=1" >首页</a>
+						<a href="UserAdviceServlet?type=pages&current" >上一页</a>
+						<%
+					}
+					
+				%>
+			</center>
+			
 		</center>		
 	</div>
 </body>

@@ -45,8 +45,7 @@
 			<%
 				int currentpageno = 1;
 				if (request.getParameter("currentpageno") != null) {
-					currentpageno = Integer.parseInt(request
-							.getParameter("currentpageno"));
+					currentpageno = Integer.parseInt(request.getParameter("currentpageno"));
 				}
 				int pageCount = 0;
 				if (request.getParameter("pageCount") != null) {
@@ -55,22 +54,21 @@
 
 				out.print(currentpageno + "/" + pageCount + "&nbsp;&nbsp;");
 				if (currentpageno == 1 && pageCount != 1) {
-			%><a
-				href="UserAdviceServlet?type=pages&currentpageno=<%=currentpageno + 1%>">下一页</a>
+			%>
+			<a href="UserAdviceServlet?type=pages&currentpageno=<%=currentpageno + 1%>">下一页</a>
 			<a href="UserAdviceServlet?type=pages&currentpageno=<%=pageCount%>">尾页</a>
 			<%
 				} else if (currentpageno > 1 && currentpageno < pageCount) {
 			%>
-			<a href="UserAdviceServlet?type=pages&currentpageno=1">首页</a> <a
-				href="UserAdviceServlet?type=pages&currentpageno=<%=currentpageno - 1%>">上一页</a>
-			<a
-				href="UserAdviceServlet?type=pages&currentpageno=<%=currentpageno + 1%>">下一页</a>
+			<a href="UserAdviceServlet?type=pages&currentpageno=1">首页</a> 
+			<a href="UserAdviceServlet?type=pages&currentpageno=<%=currentpageno - 1%>">上一页</a>
+			<a href="UserAdviceServlet?type=pages&currentpageno=<%=currentpageno + 1%>">下一页</a>
 			<a href="UserAdviceServlet?type=pages&currentpageno=<%=pageCount%>">尾页</a>
 			<%
 				} else if (currentpageno == pageCount && currentpageno != 1) {
 			%>
-			<a href="UserAdviceServlet?type=pages&currentpageno=1">首页</a> <a
-				href="UserAdviceServlet?type=pages&currentpageno=<%=currentpageno - 1%>">上一页</a>
+			<a href="UserAdviceServlet?type=pages&currentpageno=1">首页</a> 
+			<a href="UserAdviceServlet?type=pages&currentpageno=<%=currentpageno - 1%>">上一页</a>
 			<%
 				}
 			%>

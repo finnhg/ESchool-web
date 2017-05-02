@@ -30,7 +30,12 @@ public class UserAdviceServlet extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		if (request.getParameter("type")!=null) {
 			if (request.getParameter("type").equals("pages")) {
-				
+				int pageSize=5;
+				String currentPageNoString=request.getParameter("currentPageNo");
+				int currentPageNo=1;
+				if (currentPageNoString!=null) {
+					currentPageNo=Integer.parseInt(currentPageNoString);
+				}
 			}
 		}
 	}
