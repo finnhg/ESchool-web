@@ -79,6 +79,11 @@
 						<a href="UserAdviceServlet?type=pages&currentPageNo=1" >首页</a>
 						<a href="UserAdviceServlet?type=pages&current" >上一页</a>
 						<%
+							out.print(currentPageNo+"/"+pageCount);
+						%>
+						<%
+					}else if(currentPageNo == pageCount && pageCount == 1){
+						out.print("1/1");
 					}
 					
 				%>
