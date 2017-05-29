@@ -16,13 +16,11 @@ function isTel(str) {
 	return reg.test(str);
 }
 
-/* Jquery验证Id是否已经存在 */
+/* Jquery验证表单输入  */
 $(document).ready(function() {
 	//验证id是否已经被注册
 	$("#manager_id").change(function() {
-		$.post("ManagerServlet?type=check", {
-			manager_id : $("#manager_id").val()
-		}, function(data, status) {
+		$.post("ManagerServlet?type=check", {manager_id : $("#manager_id").val()}, function(data, status) {
 			var isExist=data;
 			if (data == "1") {
 				$("#span1").html("&nbsp;&nbsp*Id已存在");
@@ -60,7 +58,7 @@ $(document).ready(function() {
 	}) 
 	
 	
-})
+});
 
 
 /* 验证输入框是否为空 */
@@ -145,8 +143,8 @@ function judge() {
 				<label class="form-label col-3"><span class="c-red"></span>性别：</label>
 				<div class="formControls col-5 skin-minimal">
 					<div class="radio-box">
-						<input type="radio" id="sex-1" name="manager_gender"
-							checked="checked" value="男" /> <label for="sex-1">男</label>
+						<input type="radio" id="sex-1" name="manager_gender"checked="checked" value="男" /> 
+						<label for="sex-1">男</label>
 					</div>
 					<div class="radio-box">
 						<input type="radio" id="sex-2" name="manager_gender" value="女" />
@@ -160,8 +158,7 @@ function judge() {
 		<div class="row cl">
 				<label class="form-label col-3"><span class="c-red">*</span>电话：</label>
 				<div class="formControls col-5">
-					<input type="text" class="input-text" id="manager_phone"
-						name="manager_phone" />
+					<input type="text" class="input-text" id="manager_phone"name="manager_phone" />
 				</div>
 				<div class="col-4">
 					<span id="span4">&nbsp;&nbsp;*</span>
@@ -181,9 +178,7 @@ function judge() {
 			<!-- 提交按钮-->
 			<div class="row cl">
 				<div class="col-9 col-offset-3"></div>
-				<input class="btn btn-primary radius" type="submit" id="submit"
-					onclick="return judge()" name="submit"
-					value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="submit" id="submit" onclick="return judge()" name="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
 	</form>
 </body>
