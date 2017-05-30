@@ -3,6 +3,7 @@ package com.just.model;
  * 用户搜藏的商品
  * @author kobe
  *
+ *
  */
 public class Collection {
 	private String collectionId;//收藏id
